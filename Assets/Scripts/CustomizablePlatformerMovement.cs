@@ -90,6 +90,12 @@ public class CustomizablePlatformerMovement : MonoBehaviour
         // Write movement animation code here. (Suggestion: send your current velocity into the Animator for both the x- and y-axis.)
         // animator.SetFloat("HorizontalMovement", moveInput.x)
         
+        if (animator != null)
+        {
+            bool isWalking = Mathf.Abs(moveInput.x) > 0.01f;
+            animator.SetBool("IsWalking", isWalking);
+        }
+        
         // Flip sprite according to direction (if a sprite renderer has been assigned)
         if (spriteRenderer)
         {
